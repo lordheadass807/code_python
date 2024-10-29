@@ -1,32 +1,31 @@
-def factor_count(number):
+def factor_count(number, k):
 
      factors = []
 
-     for divider in range(1, number):
+     limit  = int(number**0.5) + 1
+
+     for divider in range(1, limit):
          if number % divider == 0:
              factors.append(divider)
+             quotient = n // divider
+             if divider != quotient:
+                factors.append(quotient)
+    
+     factors.sort()
 
-
-     return factors
-
-def k_value(number, k):
-
-     factors = factor_count(number)
-      
      if k <= len(factors):
         return factors[k - 1]
+       
 
      else:
         return "out of range"
 
 
 
-
 n = int(input("enter a number "))
 k = int(input("enter a number "))
 
-print("factors are:", factor_count(n))
-print("the kth position is",  k_value(n, k))
+print("the kth position is",  factor_count(n, k))
 
 
 
